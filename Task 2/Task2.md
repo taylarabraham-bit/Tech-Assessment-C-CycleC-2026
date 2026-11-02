@@ -6,9 +6,12 @@ Please add your SQL query below AND add explanation of the query:
 
 ```
 [Insert Code Here]
-```
-```
+SELECT e.FirstName, COUNT(od.Quantity) AS AmountOfOrders
+FROM Employees e
+JOIN Orders o ON e.EmployeeID = o.EmployeeID
+JOIN [Order Details] od ON o.OrderID = od.OrderID
+GROUP BY e.FirstName;
 [Insert Explanation Here]
-```
+So it selects from the employee table and selects the first name column, names the quantity as the amounts of orders, then it takes the employee id to join it to orders to get order details merged to employees
 
 4. For submission commit and push this .md file to Github
