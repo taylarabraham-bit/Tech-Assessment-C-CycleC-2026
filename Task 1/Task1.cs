@@ -6,12 +6,12 @@
 
 public class Task1
 {
-    public static List<int> GetDoubledPositiveEvens(List<object> numberList)
+    public static List<int> GetDoubledPositiveEvens(List<object> listNumbers)
     {
-        List<int> finalList = new List<int>();
+        List<int> listFinal = new List<int>();
 
         // Go through each number in the list
-        foreach (var item in numberList)
+        foreach (var item in listNumbers)
         {
             // Error handling: Check if item is a number
             if (!(item is int number))
@@ -19,21 +19,26 @@ public class Task1
                 // Skip non-integer values
                 continue;
             }
-
+            // Error handling: Check if the number is null (not necessary for int, but included for completeness)
+            if (item == null)
+            {
+                // Skip null values
+                continue;
+            }
             // Check if the number is positive and even
             if (number > 0 && number % 2 == 0)
             {
-                int doubledNumber = number * 2; 
+                int twoTimes = number * 2; 
 
                 // Double the number
-                finalList.Add(doubledNumber); 
+                listFinal.Add(twoTimes); 
 
                 // Add it to the final list
             }
         }
 
         // Return the list of doubled positive even numbers
-        return finalList;
+        return listFinal;
     }
 
     // Example usage
